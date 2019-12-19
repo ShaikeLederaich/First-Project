@@ -2,50 +2,44 @@
 const myForm = document.querySelector('#my-form');
 const submit = document.querySelector('submit');
 
-const formError = false;
+
+// let formError = false;
+
 myForm.addEventListener('submit', checkForm);
+
 //FUNC--------------------All Function---------------------------//
+
 function checkForm(e) {
 
   let newTaskEntered = document.getElementById('addNewTask').value;
   let dateEntered = document.getElementById('taskDateToEnd').value;
   let timeEntered = document.getElementById('taskTimeToEnd').value;
-  let taskDate = new Date(dateEntered +'T'+timeEntered);
+  let taskDateAndTime = new Date(dateEntered +'T'+timeEntered);
   let globalTime = new Date().getTime();
 
   if (newTaskEntered.length < 5) {
     alert('Please Enter Task');
-    formError = true;
+    // formError = true;
     return false;
   }
   if (!checkIfLetter(newTaskEntered)) {
-    formError = true;
+    // formError = true;
     alert('Please Enter Task');
     return false;
   }
-  if ( taskDate.getTime() < globalTime) {
-    formError = true;
+  if ( taskDateAndTime.getTime() < globalTime) {
+    // formError = true;
     alert('Invalid date, Please fix it');
     return false;
   }
 
-  // let dateAndTime = new Date ()
-  console.log(taskDate.getTime());
-  console.log(taskDate);
-  
+  getTaskDateAndTime(taskDateAndTime);
+
   e.preventDefault();
 
 //* If All OK-----------//
   return true;
 }
-
-/* function setTaskToLocalStorage() {
-
-
-  if(!formError) {
-
-  }
-} */
 
 function checkIfLetter(text) {
 
@@ -59,7 +53,45 @@ function checkIfLetter(text) {
 }
 
 
-// newTaskAtBoard()
+function getTaskDateAndTime(var_of_date_include_time) {
+
+  let dayAtMonth = var_of_date_include_time.getDate();
+  let month = var_of_date_include_time.getMonth() + 1;
+  let year = var_of_date_include_time.getFullYear();
+
+  let taskDate = dayAtMonth + '/' + month + '/' + year;
+  // console.log(taskDate);
+
+  let hh = var_of_date_include_time.getHours();
+  let mm = var_of_date_include_time.getMinutes();
+  if (mm < 10) {
+    mm = '0'+ mm;
+  }
+  // console.log(mm);
+  let taskTime = hh + ':' + mm;
+  
+  // console.log(taskTime);
+  
+}
+
+function addNewTask(taskContent, taskDate, taskTime) {
+
+  let newTask = {
+    taskContent: `${taskContent}`,
+    taskDeadlineDate: `${taskDate}`,
+    taskDeadlineTime: `${taskTime}`
+  }
+
+  console.log(newTask);
+
+  e.preventDefault();
+}
+
+
+
+
+
+
 
 function newTaskAtBoard () {
 
@@ -75,25 +107,4 @@ function newTaskAtBoard () {
   section = document.querySelector('section').appendChild(taskBox);
   return section;
 }
-
-
-
-//* Date Testing---///
-
-today = new Date();
-dayAtMonth = today.getDate();
-dayAtWeek = today.getDay() + 1;
-hour = today.getHours();
-minutes = today.getMinutes();
-seconds = today.getSeconds();
-
-timeNow = hour +':'+ minutes +':'+ seconds;
-
-month = today.getMonth();
-year = today.getFullYear();
-
-dateNow = dayAtMonth + '/' + month + '/' + year;
-
-dateAndTimeNow = dateNow + ' ' + timeNow;
-// console.log(dateAndTimeNow);
 
