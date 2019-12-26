@@ -1,0 +1,104 @@
+@font-face {
+  font-family: mySpeacialFont;
+  src: url(CarterOne-Regular.ttf);
+}
+@import url('https://fonts.googleapis.com/css?family=PT+Serif:400,400i,700,700i|Rubik&display=swap');
+*{
+  margin: 0;
+  padding: 0;
+
+}
+.fadeIn {
+  animation-name: fadeInOpacity;
+  animation-timing-function: ease-in;
+  animation-duration: 3s;
+}
+@keyframes fadeInOpacity {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.my-container {
+overflow-y: auto;
+width: 80%;
+min-height: 650px;
+/* *Temporary height */
+background-image: url('/img/tile.jpg');
+}
+h1 {
+  font-family: 'PT Serif', serif;
+  font-size: 2.8rem;
+}
+h4 {
+  font-family: mySpeacialFont;
+}
+#my-form {
+  background: url('/img/formbg.jpg');
+  width: 68%;
+  height: auto;
+}
+.form-container {
+  width: 77%;
+  border: 2px solid rgb(65, 18, 18);
+}
+.my-form-group {
+  margin-bottom: 0rem;
+}
+#taskBoxesArea {
+  border: 1px solid black;
+  overflow-y: auto;
+  /* background-image: url('/img/tile.jpg'); */
+}
+.taskBoxes {
+  background: url('/img/notebg.png') no-repeat center center/cover;
+  height: 290px;
+  /* float: left; */
+  position: relative;
+  font-size: 1.3rem;
+}
+.taskHeadline {
+  font-size: 1.8rem;
+  position: absolute;
+  top: 30px;
+  left: 25%;
+}
+.taskP {
+  border: 3px double rgb(129, 136, 226);
+  border-radius: 5px;
+  font-family: mySpeacialFont;
+  position: absolute;
+  top: 65px;
+  margin: 5px 7px;
+  width: 85%;
+  padding: 3px 8px;
+  max-height: 43%;
+  overflow-y: scroll;
+}
+.smText {
+  position: absolute;
+  bottom: 73px;
+  /* font-size: 1.05rem; */
+  left: 15px;
+  text-shadow: 1px 1px 2px rgb(51, 49, 80);
+}
+.taskDate {
+  position: absolute;
+  bottom: 45px;
+  padding-left: 10px;
+  font-weight: bold;
+} 
+.taskTime {
+  position: absolute;
+  bottom: 20px;
+  padding-left: 10px;
+  font-weight: bold;
+}
+
+.delTask {
+  position: absolute;
+  right: 14%;
+  top: 20px;
+}

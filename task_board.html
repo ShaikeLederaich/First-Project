@@ -6,6 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
               <!-- * Bootstrap -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <script src="https://kit.fontawesome.com/404371f498.js" crossorigin="anonymous"></script>
   <title>Task board</title>
   <style>
   @font-face {
@@ -14,10 +15,29 @@
   }
   @import url('https://fonts.googleapis.com/css?family=PT+Serif:400,400i,700,700i|Rubik&display=swap');
 
+  *{
+    margin: 0;
+    padding: 0;
+
+  }
+  .fadeIn {
+    animation-name: fadeInOpacity;
+    animation-timing-function: ease-in;
+    animation-duration: 3s;
+  }
+  @keyframes fadeInOpacity {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
   .my-container {
+  overflow-y: auto;
   width: 80%;
+  min-height: 650px;
   /* *Temporary height */
-  height:600px;
   background-image: url('/img/tile.jpg');
   }
   h1 {
@@ -39,12 +59,65 @@
   .my-form-group {
     margin-bottom: 0rem;
   }
+  #taskBoxesArea {
+    border: 1px solid black;
+    overflow-y: auto;
+    /* background-image: url('/img/tile.jpg'); */
+  }
   .taskBoxes {
     background: url('/img/notebg.png') no-repeat center center/cover;
     height: 290px;
-    float: left;
+    /* float: left; */
+    position: relative;
+    font-size: 1.3rem;
+  }
+  .taskBoxes:hover .delTask {
+    position: absolute;
+    right: 14%;
+    top: 20px;
+    visibility: visible;
+  }
+  .taskHeadline {
+    font-size: 1.8rem;
+    position: absolute;
+    top: 30px;
+    left: 25%;
+  }
+  .taskP {
+    border: 3px double rgb(129, 136, 226);
+    border-radius: 5px;
+    font-family: mySpeacialFont;
+    position: absolute;
+    top: 65px;
+    margin: 5px 7px;
+    width: 85%;
+    padding: 3px 8px;
+    max-height: 43%;
+    overflow-y: scroll;
+  }
+  .smText {
+    position: absolute;
+    bottom: 73px;
+    /* font-size: 1.05rem; */
+    left: 15px;
+    text-shadow: 1px 1px 2px rgb(51, 49, 80);
+  }
+  .taskDate {
+    position: absolute;
+    bottom: 45px;
+    padding-left: 10px;
+    font-weight: bold;
+  } 
+  .taskTime {
+    position: absolute;
+    bottom: 20px;
+    padding-left: 10px;
+    font-weight: bold;
   }
   
+  .delTask {
+    visibility: hidden;
+  }
   
 
   </style>
@@ -102,9 +175,25 @@
           </form>       <!-- END----------- fORM End------------>
     </header> <!-- END-------------- Header End------------------>
 
-    <section class="mt-3" id=" taskBoxesArea">
-      <!-- <div><img src="" alt=""></div> -->
+    <section class="mt-3" id="taskBoxesArea">
+      
+      <div class="taskBoxes float-left w-25">
+        <h2 class="taskHeadline">Task 1</h2>
+        <p class="taskP">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Doloribus ipsum magni impedit quas fuga maiores?
+        </p>
+        <i class="fas fa-times m-1 delTask"></i>
+        <small class="smText">Deadline for the task:</small>
+        <div class="taskDate">12/09/2019</div>
+        <div class="taskTime">12:30</div>
+      </<i>
+      
+      
+
+
     </section>
+
+
+    <!-- END Tasks Boxes Area -->
 
 
 
@@ -113,19 +202,9 @@
 
   </div>     <!-- END container -->
 
-
-
-
-
-
-
-
-
-
-
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-<script src="scripts2.js"></script>
+<script src="scripts.js"></script>
 </body>
 </html>
