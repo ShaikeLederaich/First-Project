@@ -11,14 +11,13 @@ myForm.addEventListener('submit', saveNewTask);
 getItemsFromLocalStorage();
 updateTaskBoard();
 
-
 console.log(tasks);
 //FUNC--------------------All Function--------------------------//
 
 function updateTaskBoard() {
   let myTaskBoard = document.querySelector('#taskBoxesArea');
   myTaskBoard.innerHTML = '';
-  
+
   for (let i = 0; i < tasks.length; i++) {
     let taskBox = document.createElement('div');
     taskBox.classList.add('taskBoxes');
@@ -62,7 +61,6 @@ function updateTaskBoard() {
   return myTaskBoard;
 }
 
-
 // console.log(localStorage);
 function deleteTask(taskIndex) {
   let sum = 1 + taskIndex;
@@ -70,13 +68,12 @@ function deleteTask(taskIndex) {
   if (!answer) {
     return;
   }
-  
+
   tasks.splice(taskIndex, 1);
-  
+
   localStorage.removeItem('tasks');
-  
+
   localStorage.setItem('tasks', JSON.stringify(tasks));
-  
 
   updateTaskBoard();
 }
@@ -164,7 +161,6 @@ function getTaskTime(var_of_date_include_time) {
 }
 
 function addNewTask(taskContent, taskDate, taskTime) {
-  
   let newTask = {
     taskContent: `${taskContent}`,
     taskDeadlineDate: `${taskDate}`,
@@ -173,9 +169,8 @@ function addNewTask(taskContent, taskDate, taskTime) {
 
   setItemsToLocalStorage(newTask);
   getItemsFromLocalStorage();
-  
-  updateTaskBoard().lastElementChild.classList.add('fadeIn');
 
+  updateTaskBoard().lastElementChild.classList.add('fadeIn');
 
   return newTask;
 }

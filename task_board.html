@@ -27,7 +27,7 @@
       }
       @font-face {
         font-family: mySpeacialFont3;
-        src: url(3Dumb-webfont.woff);
+        src: url(3dumb-webfont.woff);
       }
       @import url('https://fonts.googleapis.com/css?family=PT+Serif:400,400i,700,700i|Rubik&display=swap');
       @import url('https://fonts.googleapis.com/css?family=Kaushan+Script|Leckerli+One|Merienda:400,700|Permanent+Marker|Rubik:400,700,700i&display=swap');
@@ -48,6 +48,7 @@
           opacity: 1;
         }
       }
+
       .my-container {
         overflow-y: auto;
         width: 80%;
@@ -112,6 +113,24 @@
         padding: 3px 8px;
         max-height: 43%;
         overflow-y: auto;
+      }
+      /* width */
+      .taskP::-webkit-scrollbar {
+        width: 18px;
+      }
+      /* Track */
+      .taskP::-webkit-scrollbar-track {
+        box-shadow: inset 3px 3px 8px rgb(14, 23, 48);
+        border-radius: 8px;
+      }
+      /* Handle */
+      .taskP::-webkit-scrollbar-thumb {
+        box-shadow: inset 5px 5px 15px rgb(34, 184, 139);
+        border-radius: 8px;
+      }
+      /* Handle on hover */
+      .taskP::-webkit-scrollbar-thumb:hover {
+        box-shadow: inset 5px 5px 18px rgb(4, 63, 45);
       }
       .smText {
         position: absolute;
@@ -232,9 +251,7 @@
       </section>
 
       <section class="mt-3">
-        <div id="taskBoxesArea" class="p-2 mb-3">
-          
-        </div>
+        <div id="taskBoxesArea" class="p-2 mb-3"></div>
       </section>
 
       <!-- END Tasks Boxes Area -->
