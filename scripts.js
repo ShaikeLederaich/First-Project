@@ -1,8 +1,5 @@
 const myForm = document.querySelector('#my-form');
 const submit = document.querySelector('submit');
-const submitBox = document.querySelector('#submitBox');
-const taskBoxes = document.querySelectorAll('.taskBoxes');
-
 
 let tasks;
 
@@ -19,7 +16,8 @@ console.log(tasks);
 //FUNC--------------------All Function--------------------------//
 
 function updateTaskBoard() {
-  document.querySelector('#taskBoxesArea').innerHTML = '';
+  let myTaskBoard = document.querySelector('#taskBoxesArea');
+  myTaskBoard.innerHTML = '';
   
   for (let i = 0; i < tasks.length; i++) {
     let taskBox = document.createElement('div');
@@ -58,14 +56,13 @@ function updateTaskBoard() {
     divForTime.classList.add('taskTime');
     divForTime.appendChild(document.createTextNode(tasks[i].taskDeadlineTime));
     taskBox.appendChild(divForTime);
-    // return taskBox;
-    document.querySelector('#taskBoxesArea').appendChild(taskBox);
+
+    myTaskBoard.appendChild(taskBox);
   }
+  return myTaskBoard;
 }
 
-function createTaskBox() {
-  
-}
+
 // console.log(localStorage);
 function deleteTask(taskIndex) {
   let sum = 1 + taskIndex;
@@ -73,10 +70,14 @@ function deleteTask(taskIndex) {
   if (!answer) {
     return;
   }
-  tasks.splice(tasks[taskIndex], 1);
+  
+  tasks.splice(taskIndex, 1);
+  
   localStorage.removeItem('tasks');
-  // console.log(tasks);
+  
   localStorage.setItem('tasks', JSON.stringify(tasks));
+  
+
   updateTaskBoard();
 }
 function checkForm(e) {
@@ -163,6 +164,7 @@ function getTaskTime(var_of_date_include_time) {
 }
 
 function addNewTask(taskContent, taskDate, taskTime) {
+  
   let newTask = {
     taskContent: `${taskContent}`,
     taskDeadlineDate: `${taskDate}`,
@@ -170,6 +172,10 @@ function addNewTask(taskContent, taskDate, taskTime) {
   };
 
   setItemsToLocalStorage(newTask);
+  getItemsFromLocalStorage();
+  
+  updateTaskBoard().lastElementChild.classList.add('fadeIn');
+
 
   return newTask;
 }
