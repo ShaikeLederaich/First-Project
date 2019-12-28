@@ -1,5 +1,4 @@
 const myForm = document.querySelector('#my-form');
-const submit = document.querySelector('submit');
 
 let tasks;
 
@@ -12,6 +11,7 @@ getItemsFromLocalStorage();
 updateTaskBoard();
 
 console.log(tasks);
+
 //FUNC--------------------All Function--------------------------//
 
 function updateTaskBoard() {
@@ -20,17 +20,20 @@ function updateTaskBoard() {
 
   for (let i = 0; i < tasks.length; i++) {
     let taskBox = document.createElement('div');
-    taskBox.classList.add('taskBoxes');
-    taskBox.classList.add('w-25');
-    taskBox.classList.add('float-left');
+    taskBox.classList.add(
+      'taskBoxes',
+      'w-25',
+      'float-left',
+      'position-relative'
+    );
 
     let taskHeadline = document.createElement('h2');
-    taskHeadline.classList.add('taskHeadline');
+    taskHeadline.classList.add('taskHeadline', 'position-absolute');
     taskHeadline.appendChild(document.createTextNode('Task ' + (i + 1)));
     taskBox.appendChild(taskHeadline);
 
     let taskBody = document.createElement('p');
-    taskBody.classList.add('taskP');
+    taskBody.classList.add('taskP', 'position-absolute');
     taskBody.appendChild(document.createTextNode(tasks[i].taskContent));
     taskBox.appendChild(taskBody);
 
@@ -40,19 +43,19 @@ function updateTaskBoard() {
     taskBox.appendChild(taskIconDelete);
 
     let taskSmallText = document.createElement('small');
-    taskSmallText.classList.add('smText');
+    taskSmallText.classList.add('smText', 'position-absolute');
     taskSmallText.appendChild(
       document.createTextNode('Deadline for the task:')
     );
     taskBox.appendChild(taskSmallText);
 
     let divForDate = document.createElement('div');
-    divForDate.classList.add('taskDate');
+    divForDate.classList.add('taskDate', 'position-absolute');
     divForDate.appendChild(document.createTextNode(tasks[i].taskDeadlineDate));
     taskBox.appendChild(divForDate);
 
     let divForTime = document.createElement('div');
-    divForTime.classList.add('taskTime');
+    divForTime.classList.add('taskTime', 'position-absolute');
     divForTime.appendChild(document.createTextNode(tasks[i].taskDeadlineTime));
     taskBox.appendChild(divForTime);
 
@@ -61,7 +64,6 @@ function updateTaskBoard() {
   return myTaskBoard;
 }
 
-// console.log(localStorage);
 function deleteTask(taskIndex) {
   let sum = 1 + taskIndex;
   answer = confirm(`Are you sure you want to remove the task ${sum}?`);
@@ -70,13 +72,11 @@ function deleteTask(taskIndex) {
   }
 
   tasks.splice(taskIndex, 1);
-
   localStorage.removeItem('tasks');
-
   localStorage.setItem('tasks', JSON.stringify(tasks));
-
   updateTaskBoard();
 }
+
 function checkForm(e) {
   let newTaskEntered = document.getElementById('addNewTask').value;
   let dateEntered = document.getElementById('taskDateToEnd').value;
@@ -131,6 +131,7 @@ function createNewTaskObj() {
   let timeEntered = document.getElementById('taskTimeToEnd').value;
   let taskDateAndTime = new Date(dateEntered + 'T' + timeEntered);
 
+  console.log(dateEntered);
   console.log(
     addNewTask(
       newTaskEntered,
@@ -205,11 +206,4 @@ function clearFields() {
   document.getElementById('addNewTask').value = '';
   document.getElementById('taskDateToEnd').value = '';
   document.getElementById('taskTimeToEnd').value = '23:59';
-}
-
-function newTaskAtBoard() {
-  let taskBody = document.createElement('div');
-  taskBox.appendChild(taskBody);
-
-  return section;
 }

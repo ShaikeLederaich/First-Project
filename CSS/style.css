@@ -1,140 +1,137 @@
-      @font-face {
-        font-family: mySpeacialFont;
-        src: url(../CarterOne-Regular.ttf);
-      }
-      @font-face {
-        font-family: mySpeacialFont2;
-        src: url(../1942-webfont.woff);
-      }
-      @font-face {
-        font-family: mySpeacialFont3;
-        src: url(../3dumb-webfont.woff);
-      }
-      @import url('https://fonts.googleapis.com/css?family=PT+Serif:400,400i,700,700i|Rubik&display=swap');
-      @import url('https://fonts.googleapis.com/css?family=Kaushan+Script|Leckerli+One|Merienda:400,700|Permanent+Marker|Rubik:400,700,700i&display=swap');
-      * {
-        margin: 0;
-        padding: 0;
-      }
-      .fadeIn {
-        animation-name: fadeInOpacity;
-        animation-timing-function: ease-in;
-        animation-duration: 3s;
-      }
-      @keyframes fadeInOpacity {
-        from {
-          opacity: 0;
-        }
-        to {
-          opacity: 1;
-        }
-      }
+@font-face {
+  font-family: mySpeacialFont;
+  src: url(../CarterOne-Regular.ttf);
+}
+@font-face {
+  font-family: mySpeacialFont2;
+  src: url(../1942-webfont.woff);
+}
+@font-face {
+  font-family: mySpeacialFont3;
+  src: url(../3dumb-webfont.woff);
+}
+@import url('https://fonts.googleapis.com/css?family=PT+Serif:400,400i,700,700i|Rubik&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Kaushan+Script|Leckerli+One|Merienda:400,700|Permanent+Marker|Rubik:400,700,700i&display=swap');
+* {
+  margin: 0;
+  padding: 0;
+}
+.fadeIn {
+  animation-name: fadeInOpacity;
+  animation-timing-function: ease-in;
+  animation-duration: 3s;
+}
+@keyframes fadeInOpacity {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
 
-      .my-container {
-        overflow-y: auto;
-        width: 80%;
-        min-height: 650px;
-        background-image: url('/img/tile.jpg');
-      }
-      h1 {
-        font-family: 'Permanent Marker', cursive;
-        font-family: mySpeacialFont3;
-        font-size: 3.8rem;
-        text-shadow: 4px 3px 6px rgb(90, 222, 231);
-      }
-      h4 {
-        font-family: mySpeacialFont;
-      }
-      #my-form {
-        background: url('/img/formbg.jpg');
-        width: 68%;
-        height: auto;
-      }
-      .form-container {
-        width: 77%;
-        border: 2px solid rgb(65, 18, 18);
-      }
-      .my-form-group {
-        margin-bottom: 0rem;
-      }
-      #taskBoxesArea {
-        border: 5px double rgb(6, 2, 46);
-        border-radius: 5px;
-        overflow-y: auto;
-      }
-      #taskBoxesArea:hover {
-        background-color: rgba(12, 25, 36, 0.3);
-      }
-      .taskBoxes {
-        background: url('/img/notebg.png') no-repeat center center/cover;
-        height: 290px;
-        position: relative;
-        font-size: 1.3rem;
-      }
-      .taskBoxes:hover .delTask {
-        position: absolute;
-        right: 14%;
-        top: 20px;
-        visibility: visible;
-      }
-      .taskHeadline {
-        font-size: 2.1rem;
-        position: absolute;
-        top: 25px;
-        left: 18%;
-        font-family: mySpeacialFont2;
-        letter-spacing: 0.2rem;
-      }
-      .taskP {
-        font-family: 'Merienda', cursive;
-        position: absolute;
-        top: 65px;
-        margin: 5px 7px;
-        width: 85%;
-        padding: 3px 8px;
-        max-height: 43%;
-        overflow-y: auto;
-      }
-      /* width */
-      .taskP::-webkit-scrollbar {
-        width: 18px;
-      }
-      /* Track */
-      .taskP::-webkit-scrollbar-track {
-        box-shadow: inset 3px 3px 8px rgb(14, 23, 48);
-        border-radius: 8px;
-      }
-      /* Handle */
-      .taskP::-webkit-scrollbar-thumb {
-        box-shadow: inset 5px 5px 15px rgb(34, 184, 139);
-        border-radius: 8px;
-      }
-      /* Handle on hover */
-      .taskP::-webkit-scrollbar-thumb:hover {
-        box-shadow: inset 5px 5px 18px rgb(4, 63, 45);
-      }
-      .smText {
-        position: absolute;
-        bottom: 65px;
-        font-size: 1.15rem;
-        left: 10px;
-        text-shadow: 1px 1px 2px rgb(51, 49, 80);
-      }
-      .taskDate {
-        position: absolute;
-        bottom: 30px;
-        padding-left: 10px;
-        font-weight: bold;
-        font-family: 'Leckerli One', cursive;
-      }
-      .taskTime {
-        position: absolute;
-        bottom: 5px;
-        padding-left: 10px;
-        font-weight: bold;
-        font-family: 'Leckerli One', cursive;
-      }
+.my-container {
+  overflow-y: auto;
+  width: 80%;
+  min-height: 650px;
+  background-image: url('/img/tile.jpg');
+}
+h1 {
+  font-family: 'Permanent Marker', cursive;
+  font-family: mySpeacialFont3;
+  font-size: 3.8rem;
+  text-shadow: 4px 3px 6px rgb(90, 222, 231);
+}
+h4 {
+  font-family: mySpeacialFont;
+}
+#my-form {
+  background: url('/img/formbg.jpg');
+  width: 68%;
+  height: auto;
+}
+.form-container {
+  width: 77%;
+  border: 2px solid rgb(65, 18, 18);
+}
+.my-form-group {
+  margin-bottom: 0rem;
+}
+#taskBoxesArea {
+  border: 5px double rgb(6, 2, 46);
+  border-radius: 5px;
+  overflow-y: auto;
+}
+#taskBoxesArea:hover {
+  background-color: rgba(12, 25, 36, 0.3);
+}
+.taskBoxes {
+  background: url('/img/notebg.png') no-repeat center center/cover;
+  height: 290px;
+  font-size: 1.3rem;
+}
+.taskBoxes:hover .delTask {
+  position: absolute;
+  right: 12%;
+  top: 20px;
+  visibility: visible;
+}
+.taskBoxes:hover .delTask:hover {
+  cursor: pointer;
+}
+.taskHeadline {
+  font-size: 2.1rem;
+  top: 25px;
+  left: 15%;
+  font-family: mySpeacialFont2;
+  letter-spacing: 0.2rem;
+}
+.taskP {
+  font-family: 'Merienda', cursive;
+  top: 65px;
+  margin: 5px 7px;
+  width: 85%;
+  padding: 3px 8px;
+  max-height: 43%;
+  overflow-y: auto;
+}
+/* width */
+.taskP::-webkit-scrollbar {
+  width: 18px;
+}
+/* Track */
+.taskP::-webkit-scrollbar-track {
+  box-shadow: inset 3px 3px 8px rgb(14, 23, 48);
+  border-radius: 8px;
+}
+/* Handle */
+.taskP::-webkit-scrollbar-thumb {
+  box-shadow: inset 5px 5px 15px rgb(34, 184, 139);
+  border-radius: 8px;
+}
+/* Handle on hover */
+.taskP::-webkit-scrollbar-thumb:hover {
+  box-shadow: inset 5px 5px 18px rgb(4, 63, 45);
+}
+.smText {
+  bottom: 65px;
+  font-size: 1.15rem;
+  left: 10px;
+  text-shadow: 1px 1px 2px rgb(51, 49, 80);
+}
+.taskDate {
+  bottom: 30px;
+  padding-left: 10px;
+  font-weight: bold;
+  font-family: 'Leckerli One', cursive;
+}
+.taskTime {
+  bottom: 5px;
+  padding-left: 10px;
+  font-weight: bold;
+  font-family: 'Leckerli One', cursive;
+}
 
-      .delTask {
-        visibility: hidden;
-      }
+.delTask {
+  visibility: hidden;
+}
